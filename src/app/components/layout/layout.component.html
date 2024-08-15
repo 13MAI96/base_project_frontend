@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="map-and-players">
+      <div class="map-container" *ngIf="isLandscapeScreen && !isSmallScreen">
+        <app-map></app-map>
+      </div>
+      <div class="players" *ngIf="isLandscapeScreen && !isSmallScreen">
+        <app-players></app-players>
+      </div>
+      <div class="chat">
+        <app-chat></app-chat>
+      </div>
+    </div>
+    <div class="actions">
+    
+    </div>
+    
+</div>

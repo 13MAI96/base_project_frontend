@@ -1,0 +1,26 @@
+<div class="chat-container">
+    <div class="history">
+        <mat-list>
+            @for (message of chatHistory; track message) {
+                <ng-container *ngIf="message.type == 'message'; else notify">
+                    <mat-list-item class="message">
+                        <span matListItemTitle><b>{{ message.sender}}</b></span>
+                        <span matListItemLine>{{ message.text }}</span>
+                    </mat-list-item>
+                </ng-container>
+                <ng-template #notify>
+                    <div class="notify">
+                        <button mat-flat-button disabled>{{ message.text }}</button>
+                    </div>
+                </ng-template>
+            }
+        </mat-list>
+    </div>
+    <div class="textbox">
+        <mat-form-field appearance="fill" class="textbox-input">
+          <mat-label>Write message or command</mat-label>
+          <input #textBox matInput placeholder="Write message o command" (keydown.enter)="sendMessage(textBox)">
+          <mat-icon matSuffix (click)="sendMessage(textBox)">send</mat-icon>
+        </mat-form-field>
+    </div>
+</div>

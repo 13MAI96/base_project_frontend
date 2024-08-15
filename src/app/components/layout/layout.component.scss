@@ -1,0 +1,52 @@
+$large: 1280px;
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    @media screen and (min-width: $large) {
+        flex-direction: column;
+    }
+    @media screen and (max-width: calc($large - 1px)) {
+        flex-direction: column-reverse;
+    }
+}
+.map-and-players{
+    display: flex;
+    justify-content: space-between;
+}
+
+.map-container{
+    width: 50vw;
+    height: 80vh;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: aquamarine;
+}
+
+.players{
+    width: 20vw;
+    height: 80vh;
+    background: #435242;
+}
+.chat{
+    @media screen and (min-width: $large) {
+        width: 30vw;
+    }
+    @media screen and (max-width: calc($large - 1px)) {
+        width: 100vw;
+    }
+    height: 80vh;
+    box-sizing: border-box;
+    border: #000 solid 1px;
+    border-radius: .5rem;
+}
+
+.actions{
+    width: 100vw;
+    min-height: 15vh;
+    background-color: brown;
+    padding: 1rem;
+    box-sizing: border-box;
+}

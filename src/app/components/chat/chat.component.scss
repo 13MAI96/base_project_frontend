@@ -1,0 +1,38 @@
+.chat-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+.history{
+    width: 100%;
+    height: 85%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    .message{
+        width: 75%;
+        background-color: #ccc;
+        border-radius: .5rem;
+        margin: 0.2rem;
+    }
+    .own-message{
+        background-color: #beffbb;
+    }
+    .notify{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+    }
+}
+.textbox{
+    width: 100%;
+    min-height: 10%;
+    display: flex;
+}
+.textbox-input{
+    width: 100%;
+}

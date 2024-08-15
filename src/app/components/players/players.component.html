@@ -1,0 +1,10 @@
+<mat-list>
+    @for (player of players; track player) {
+      <mat-list-item>
+        <!-- <mat-icon matListItemIcon color="error">circle</mat-icon> -->
+         <div matListItemIcon class="circle" [class]="player.online ? 'green' : ''"></div>
+        <div matListItemTitle>{{player.username}}</div>
+        <div matListItemLine>{{player.online ? 'Online' : 'Offline'}}</div>
+      </mat-list-item>
+    }
+  </mat-list>
