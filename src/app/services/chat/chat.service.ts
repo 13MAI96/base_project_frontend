@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { ChatMessage, Player } from '../../models/message'
 import { getCookie } from '../../utils/cookie';
 import { Environment } from '../../../environment/dev.environment';
+import { LoginService } from '../login/login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ export class ChatService {
   public players: BehaviorSubject<Player[]> = new BehaviorSubject(this.voidPlayer);
   public messages: BehaviorSubject<ChatMessage[]> = new BehaviorSubject(this.history)
 
-  constructor() {
-    let token = getCookie('session')
-    this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${token}`);
+  constructor(
+    private loginService: LoginService
+  ) {
+    this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${loginService.token}`);
     this.socket.onopen = (ev: Event) => {
       console.log("Socket opened.")
     };
