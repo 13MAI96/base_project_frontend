@@ -24,7 +24,7 @@ export class LoginService {
   }
 
   public registerUser(form: LoginRequest): Observable<LoginResponse>{
-    return this.http.post<LoginResponse>(`${this.backendUrl}/create`, form)
+    return this.http.post<LoginResponse>(`${this.backendUrl}/login/create`, form)
   }
 
 
