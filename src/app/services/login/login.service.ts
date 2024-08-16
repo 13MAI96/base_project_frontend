@@ -21,7 +21,6 @@ export class LoginService {
   } 
 
   public login(form: LoginRequest): Observable<LoginResponse>{
-    console.log(form)
     return this.http.post<LoginResponse>(`${this.backendUrl}/login`, form).pipe(
       map(result => {
         if(result.body) this._token = result.body.token

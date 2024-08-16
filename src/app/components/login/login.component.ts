@@ -63,9 +63,7 @@ export class LoginComponent {
       } else {
         this.loginService.login(request).subscribe({next: response => {
           if(response.body){
-            console.log("Navigate", response)
-            this.router.navigate(['layout']).then((value) => console.log(value) ).catch(err => console.log(err))
-              .finally( () => console.log("Finally"))
+            this.router.navigate(['layout'])
           } else {
             this.openDialog(response.message)
           }

@@ -33,7 +33,6 @@ export class ChatService {
       let temp = this.messages.value
       let newMessage: ChatMessage = JSON.parse(message.data)
       if(newMessage.type == 'message' || newMessage.type == 'notify'){
-        console.log("Message or Notify", newMessage.type, message)
         temp.push(newMessage)
         this.messages.next(temp)
       } else if(newMessage.type == 'command'){
