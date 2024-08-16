@@ -36,7 +36,7 @@ export class LoginService {
 
 
   isSessionValid(): Observable<boolean> {
-    return this.http.get<{ valid: boolean }>(`${this.backendUrl}/session`, {headers: new HttpHeaders({session: this._token})}).pipe(
+    return this.http.get<{ valid: boolean }>(`${this.backendUrl}/login/session`, {headers: new HttpHeaders({session: this._token})}).pipe(
       map(response => response.valid),
       catchError(() => of(false))
     );
