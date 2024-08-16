@@ -5,6 +5,7 @@ import { ChatMessage, Player } from '../../models/message'
 import { getCookie } from '../../utils/cookie';
 import { Environment } from '../../../environment/dev.environment';
 import { LoginService } from '../login/login.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,16 @@ export class ChatService {
   public messages: BehaviorSubject<ChatMessage[]> = new BehaviorSubject(this.history)
 
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private router: Router
   ) {
-    this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${loginService.token}`);
+    this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
     this.socket.onopen = (ev: Event) => {
       console.log("Socket opened.")
     };
     this.socket.onclose = () => {
       console.log("Socket closed.")
+      this.router.navigate(["login"])
     }
     this.socket.onmessage = (message: MessageEvent) => {
       let temp = this.messages.value
