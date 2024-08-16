@@ -31,6 +31,7 @@ export class ChatService {
       this.connect_intents++
       if(this.connect_intents < 3) {
         this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
+        return
       }
       console.log("Socket closed.")
       this.router.navigate(["login"])
