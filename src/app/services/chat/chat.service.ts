@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ChatMessage, Player } from '../../models/message'
 import { getCookie } from '../../utils/cookie';
+import { Environment } from '../../../environment/dev.environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ChatService {
 
   constructor() {
     let token = getCookie('session')
-    this.socket = new WebSocket(`ws://localhost:4600/feed/ws/${token}`);
+    this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${token}`);
     this.socket.onopen = (ev: Event) => {
       console.log("Socket opened.")
     };

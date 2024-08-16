@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { LoginRequest, LoginResponse } from '../../models/login';
 import { getCookie } from '../../utils/cookie';
+import { Environment } from '../../../environment/dev.environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
 
-  private backendUrl: string = "http://172.20.10.4:4600/login"//'http://localhost:4600/login'; 
+  private backendUrl: string = `${Environment.http_protocol}${Environment.api_url}` //"http://172.20.10.4:4600/login"//'http://localhost:4600/login'; 
 
   constructor(
     private http: HttpClient
@@ -19,7 +20,7 @@ export class LoginService {
 
   public login(form: LoginRequest): Observable<LoginResponse>{
     console.log(form)
-    return this.http.post<LoginResponse>(this.backendUrl, form, {withCredentials: true})
+    return this.http.post<LoginResponse>(`${this.backendUrl}/login`, form, {withCredentials: true})
   }
 
   public registerUser(form: LoginRequest): Observable<LoginResponse>{
