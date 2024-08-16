@@ -16,7 +16,6 @@ export class ChatService {
   private voidPlayer: Player[] = [] 
   public players: BehaviorSubject<Player[]> = new BehaviorSubject(this.voidPlayer);
   public messages: BehaviorSubject<ChatMessage[]> = new BehaviorSubject(this.history)
-  private connect_intents: number = 0
 
   constructor(
     private loginService: LoginService,
@@ -24,15 +23,9 @@ export class ChatService {
   ) {
     this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
     this.socket.onopen = (ev: Event) => {
-      this.connect_intents = 0;
       console.log("Socket opened.")
     };
     this.socket.onclose = () => {
-      this.connect_intents++
-      if(this.connect_intents < 3) {
-        this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
-        return
-      }
       console.log("Socket closed.")
       this.router.navigate(["login"])
     }
