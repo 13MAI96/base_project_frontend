@@ -46,6 +46,7 @@ export class ChatService {
    }
 
    sendMessage(message: ChatMessage){
+    message.sender = this.loginService.user.username
     this.socket.send(JSON.stringify(message))
    }
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { LoginRequest, LoginResponse } from '../../models/login';
+import { LoginRequest, LoginResponse, LoginResponseBody } from '../../models/login';
 import { getCookie } from '../../utils/cookie';
 import { Environment } from '../../../environment/dev.environment';
 
@@ -13,6 +13,7 @@ export class LoginService {
   private backendUrl: string = `${Environment.http_protocol}${Environment.api_url}` //"http://172.20.10.4:4600/login"//'http://localhost:4600/login'; 
 
   private _token: string = "";
+  private _user!: LoginResponseBody
 
   constructor(
     private http: HttpClient
@@ -23,7 +24,10 @@ export class LoginService {
   public login(form: LoginRequest): Observable<LoginResponse>{
     return this.http.post<LoginResponse>(`${this.backendUrl}/login`, form).pipe(
       map(result => {
-        if(result.body) this._token = result.body.token
+        if(result.body) {
+          this._token = result.body.token
+          this._user = result.body
+        }
         return result
       })
     )
@@ -47,5 +51,9 @@ export class LoginService {
 
   public set token(token: string){
     this._token = token
+  }
+
+  public get user(){
+    return this._user
   }
 }

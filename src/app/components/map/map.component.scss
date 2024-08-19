@@ -35,6 +35,7 @@ ol{
     margin: calc(var(--hex-width)/10) 0;
     aspect-ratio: 1/1.7;
     width: var(--hex-width);
+    height: calc(var(--hex-width)*1.7);
     border-radius: calc(var(--hex-width)/10);
     background: #73d7e4;
     display: flex;
