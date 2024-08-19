@@ -31,7 +31,7 @@ export class MapComponent implements AfterViewInit {
     const containerWidth = this.container.nativeElement.offsetWidth;
     const containerHeight = this.container.nativeElement.offsetHeight;
 
-    const newHex = Math.round((containerWidth/this.columns)*1.1);
+    const newHex = Math.round((containerWidth/this.columns));
 
     const hexForHeight = Math.round((containerHeight/this.columns))
 
