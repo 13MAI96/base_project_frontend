@@ -29,8 +29,18 @@ export class MapComponent implements AfterViewInit {
 
   private updateContainerWidth(): void {
     const containerWidth = this.container.nativeElement.offsetWidth;
+    const containerHeight = this.container.nativeElement.offsetHeight;
+
     const newHex = Math.round((containerWidth/this.columns)*1.1);
-    this.elRef.nativeElement.style.setProperty('--hex-width', `${newHex > 40 ? newHex : 45}px`);
+
+    const hexForHeight = Math.round((containerHeight/this.columns))
+
+    if(newHex*1.7 > hexForHeight){
+      this.elRef.nativeElement.style.setProperty('--hex-width', `${hexForHeight}px`);
+    } else {
+      this.elRef.nativeElement.style.setProperty('--hex-width', `${newHex > 40 ? newHex : 45}px`);
+    }
+
   }
 
 }
