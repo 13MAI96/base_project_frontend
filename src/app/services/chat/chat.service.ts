@@ -38,8 +38,9 @@ export class ChatService {
       } else if(newMessage.type == 'command'){
         if(newMessage.command == 'assignRole'){
           let updatedUser = this.loginService.user;
-          updatedUser.role = newMessage.text
-          this.loginService.user = updatedUser
+          updatedUser.role = newMessage.text;
+          this.loginService.user = updatedUser;
+          this.messages.next([])
         }
       } else if(newMessage.type = 'data'){
         this.players.next(newMessage.data)
