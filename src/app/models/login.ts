@@ -11,6 +11,7 @@ export class LoginResponseBody{
     user_id!: number
     username!: string
     token!: string
+    role: string = 'player' 
 }
 
 

@@ -5,11 +5,12 @@ import { ScreenService } from '../../services/screen/screen.service';
 import { BreakpointState } from '@angular/cdk/layout';
 import { NgIf } from '@angular/common';
 import { PlayersComponent } from '../players/players.component';
+import { ActionsComponent } from '../actions/actions.component';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [MapComponent, ChatComponent, NgIf, PlayersComponent],
+  imports: [MapComponent, ChatComponent, NgIf, PlayersComponent, ActionsComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })

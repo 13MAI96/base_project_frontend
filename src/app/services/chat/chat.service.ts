@@ -36,7 +36,11 @@ export class ChatService {
         temp.push(newMessage)
         this.messages.next(temp)
       } else if(newMessage.type == 'command'){
-
+        if(newMessage.command == 'assignRole'){
+          let updatedUser = this.loginService.user;
+          updatedUser.role = newMessage.text
+          this.loginService.user = updatedUser
+        }
       } else if(newMessage.type = 'data'){
         this.players.next(newMessage.data)
       } else {
