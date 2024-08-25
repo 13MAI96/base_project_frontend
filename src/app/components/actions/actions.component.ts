@@ -5,6 +5,7 @@ import { ChatService } from '../../services/chat/chat.service';
 import { NgIf } from '@angular/common';
 import { LoginResponseBody } from '../../models/login';
 import { LoginService } from '../../services/login/login.service';
+import { GameService } from '../../services/game/game.service';
 
 @Component({
   selector: 'app-actions',
@@ -17,7 +18,8 @@ export class ActionsComponent {
   public user!: LoginResponseBody
 
   constructor(
-    private loginService: LoginService
+    private loginService: LoginService,
+    private gameService: GameService
   ){
     this.loginService.user_obs.subscribe(
         (user: LoginResponseBody) => {
@@ -27,7 +29,9 @@ export class ActionsComponent {
   }
 
   public startGame(){
-
+    this.gameService.startGame().subscribe(() => {
+      console.log("Game started.")
+    })
   }
 
 
