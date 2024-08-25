@@ -20,7 +20,7 @@ export class GameService {
   } 
 
   public startGame(): Observable<DefaultResponse> {
-    return this.http.get<DefaultResponse>(`${this.backendUrl}/feed/start`, {headers: new HttpHeaders({session: this.loginService.token})});
+    return this.http.put<DefaultResponse>(`${this.backendUrl}/feed/start`, {headers: new HttpHeaders({session: this.loginService.token})});
   }
 
 }
