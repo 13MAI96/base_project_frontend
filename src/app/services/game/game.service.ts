@@ -20,7 +20,9 @@ export class GameService {
   } 
 
   public startGame(): Observable<DefaultResponse> {
-    const header = {headers: new HttpHeaders({session: this.loginService.token})}
+    const token = this.loginService.token
+    console.log(token)
+    const header = {headers: new HttpHeaders({session: token})}
     console.log(header)
     return this.http.put<DefaultResponse>(`${this.backendUrl}/feed/start`, header);
   }
