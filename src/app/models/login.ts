@@ -3,6 +3,10 @@ export class DefaultResponse{
     message!: string
 }
 
+export class BodyResponse<T> extends DefaultResponse{
+    body!: T
+}
+
 export class LoginResponse extends DefaultResponse{
     body!: LoginResponseBody
 }

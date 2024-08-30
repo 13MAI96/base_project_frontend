@@ -6,6 +6,7 @@ import { getCookie } from '../../utils/cookie';
 import { Environment } from '../../../environment/dev.environment';
 import { LoginService } from '../login/login.service';
 import { Router } from '@angular/router';
+import { GameService } from '../game/game.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,7 @@ export class ChatService {
 
   constructor(
     private loginService: LoginService,
+    private gameService: GameService,
     private router: Router
   ) {
     this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
@@ -41,6 +43,8 @@ export class ChatService {
           updatedUser.role = newMessage.text;
           this.loginService.user = updatedUser;
           this.messages.next([])
+        } else if(newMessage.command == 'updateMap'){
+          this.gameService.getMap()
         }
       } else if(newMessage.type = 'data'){
         this.players.next(newMessage.data)

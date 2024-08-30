@@ -22,9 +22,6 @@ ol{
 }
 
 @for $i from 0 through 6 {
-    ol.even-#{$i}{
-        margin-top: calc(var(--hex-width)*$i);
-    }
     ol.odd-#{$i}{
         margin-top: calc(var(--hex-width)*$i);
     }
@@ -48,15 +45,29 @@ ol{
 
 .hex.blue{
     background: #010480;
+    color: #ffffff;
 }
 .hex.yellow{
     background: #807801;
+    color: #ffffff;
 }
 .hex.red{
     background: #800101;
+    color: #ffffff;
 }
 .hex.deep{
     background: #738de4;
+}
+.hex.grey{
+    background: #cccccc;
+}
+.hex.deg-y-b{
+    background: linear-gradient(0deg, #807801, #010480);
+    color: #ffffff;
+}
+.hex.deg-y-r{
+    background: linear-gradient(0deg, #807801, #800101);
+    color: #ffffff;
 }
 
 .hex::before, .hex::after{
