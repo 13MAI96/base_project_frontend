@@ -12,7 +12,7 @@ import { GameService } from '../game/game.service';
   providedIn: 'root'
 })
 export class ChatService {
-  private socket: WebSocket;
+  private socket!: WebSocket;
   private history: ChatMessage[] = []
   private voidPlayer: Player[] = [] 
   public players: BehaviorSubject<Player[]> = new BehaviorSubject(this.voidPlayer);
@@ -23,6 +23,13 @@ export class ChatService {
     private gameService: GameService,
     private router: Router
   ) {
+    setTimeout(() => {
+      this.startSocket()
+    }, 500)
+    
+   }
+
+   startSocket(){
     this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
     this.socket.onopen = (ev: Event) => {
       console.log("Socket opened.")
