@@ -25,7 +25,7 @@ export class ChatService {
   ) {
     setTimeout(() => {
       this.startSocket()
-    }, 500)
+    }, 1000)
     
    }
 
