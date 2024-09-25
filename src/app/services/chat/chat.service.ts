@@ -59,6 +59,7 @@ export class ChatService {
           this.gameService.getMap()
         }
       } else if(newMessage.type = 'data'){
+        console.log("Data")
         this.players.next(newMessage.data)
       } else {
         console.log(newMessage)
