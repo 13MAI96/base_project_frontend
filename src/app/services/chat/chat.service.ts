@@ -17,6 +17,7 @@ export class ChatService {
   private voidPlayer: Player[] = [] 
   public players: BehaviorSubject<Player[]> = new BehaviorSubject(this.voidPlayer);
   public messages: BehaviorSubject<ChatMessage[]> = new BehaviorSubject(this.history)
+  private interval!: NodeJS.Timeout
 
   constructor(
     private loginService: LoginService,
@@ -31,12 +32,16 @@ export class ChatService {
 
    startSocket(){
     this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
+    this.interval = setInterval(()=>{
+      if(this.socket.CLOSED){
+        this.forceClose()
+      }
+    }, 2000)
     this.socket.onopen = (ev: Event) => {
       console.log("Socket opened.")
     };
     this.socket.onclose = () => {
-      console.log("Socket closed.")
-      this.router.navigate(["login"])
+      this.forceClose()
     }
     this.socket.onmessage = (message: MessageEvent) => {
       let temp = this.messages.value
@@ -64,5 +69,12 @@ export class ChatService {
    sendMessage(message: ChatMessage){
     message.sender = this.loginService.user.username
     this.socket.send(JSON.stringify(message))
+   }
+
+   forceClose(){
+    clearInterval(this.interval)
+    console.log("Socket closed.")
+    this.players.next([])
+    this.router.navigate(["login"])
    }
 }
