@@ -17,7 +17,7 @@ export class ChatService {
   private voidPlayer: Player[] = [] 
   public players: BehaviorSubject<Player[]> = new BehaviorSubject(this.voidPlayer);
   public messages: BehaviorSubject<ChatMessage[]> = new BehaviorSubject(this.history)
-  private interval!: NodeJS.Timeout
+  private interval!: number
 
   constructor(
     private loginService: LoginService,
@@ -32,7 +32,7 @@ export class ChatService {
 
    startSocket(){
     this.socket = new WebSocket(`${Environment.ws_protocol}${Environment.api_url}/feed/ws/${this.loginService.token}`);
-    this.interval = setInterval(()=>{
+    this.interval = window.setInterval(()=>{
       if(this.socket.CLOSED){
         this.forceClose()
       }
