@@ -1,0 +1,15 @@
+.header{
+    padding: 0.5rem;
+    .profile{
+        img{
+            border: solid 2px #ffffff;
+            border-radius: 100%;
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+}
+
+.selector, .selector:focus, .selector::selection, .selector:hover{
+    border: none;
+}
