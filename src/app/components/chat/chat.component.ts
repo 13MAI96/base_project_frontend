@@ -11,11 +11,10 @@ import { MatChipsModule } from '@angular/material/chips'
 
 
 @Component({
-  selector: 'app-chat',
-  standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatListModule, NgIf, MatChipsModule],
-  templateUrl: './chat.component.html',
-  styleUrl: './chat.component.scss'
+    selector: 'app-chat',
+    imports: [MatFormFieldModule, MatInputModule, MatIconModule, MatCardModule, MatListModule, NgIf, MatChipsModule],
+    templateUrl: './chat.component.html',
+    styleUrl: './chat.component.scss'
 })
 export class ChatComponent {
   public chatHistory: ChatMessage[] = []

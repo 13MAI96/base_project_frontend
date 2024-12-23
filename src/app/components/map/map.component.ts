@@ -5,11 +5,10 @@ import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-map',
-  standalone: true,
-  imports: [NgFor, NgIf, MatIconModule],
-  templateUrl: './map.component.html',
-  styleUrl: './map.component.scss'
+    selector: 'app-map',
+    imports: [NgFor, NgIf, MatIconModule],
+    templateUrl: './map.component.html',
+    styleUrl: './map.component.scss'
 })
 export class MapComponent implements AfterViewInit {
 

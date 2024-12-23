@@ -6,11 +6,10 @@ import { Player } from '../../models/message';
 import { ChatService } from '../../services/chat/chat.service';
 
 @Component({
-  selector: 'app-players',
-  standalone: true,
-  imports: [NgIf, MatListModule, MatIconModule, DatePipe],
-  templateUrl: './players.component.html',
-  styleUrl: './players.component.scss'
+    selector: 'app-players',
+    imports: [NgIf, MatListModule, MatIconModule, DatePipe],
+    templateUrl: './players.component.html',
+    styleUrl: './players.component.scss'
 })
 export class PlayersComponent {
     public players: Player[] = []

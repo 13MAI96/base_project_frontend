@@ -8,11 +8,10 @@ import { LoginService } from '../../services/login/login.service';
 import { GameService } from '../../services/game/game.service';
 
 @Component({
-  selector: 'app-actions',
-  standalone: true,
-  imports: [MatInputModule, MatIconModule, NgIf],
-  templateUrl: './actions.component.html',
-  styleUrl: './actions.component.scss'
+    selector: 'app-actions',
+    imports: [MatInputModule, MatIconModule, NgIf],
+    templateUrl: './actions.component.html',
+    styleUrl: './actions.component.scss'
 })
 export class ActionsComponent {
   public user!: LoginResponseBody

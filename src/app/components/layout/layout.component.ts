@@ -8,11 +8,10 @@ import { PlayersComponent } from '../players/players.component';
 import { ActionsComponent } from '../actions/actions.component';
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [MapComponent, ChatComponent, NgIf, PlayersComponent, ActionsComponent],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss'
+    selector: 'app-layout',
+    imports: [MapComponent, ChatComponent, NgIf, PlayersComponent, ActionsComponent],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
   public isSmallScreen: boolean = true;

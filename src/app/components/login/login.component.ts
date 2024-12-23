@@ -23,12 +23,11 @@ const modulesToImport = [
 ]
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: modulesToImport,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+    selector: 'app-login',
+    imports: modulesToImport,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.scss'
 })
 export class LoginComponent {
   public loginForm!: FormGroup

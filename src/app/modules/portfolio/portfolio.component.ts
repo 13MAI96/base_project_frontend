@@ -23,12 +23,11 @@ const modulesToImport = [
 ]
 
 @Component({
-  selector: 'app-portfolio',
-  standalone: true,
-  imports: modulesToImport,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss'
+    selector: 'app-portfolio',
+    imports: modulesToImport,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './portfolio.component.html',
+    styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent {
   public loginForm!: FormGroup
