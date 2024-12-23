@@ -7,7 +7,7 @@ import { ChatService } from '../../services/chat/chat.service';
 
 @Component({
     selector: 'app-players',
-    imports: [NgIf, MatListModule, MatIconModule, DatePipe],
+    imports: [MatListModule, MatIconModule],
     templateUrl: './players.component.html',
     styleUrl: './players.component.scss'
 })

@@ -37,10 +37,12 @@ $large: 1280px;
     @media screen and (max-width: calc($large - 1px)) {
         width: 100vw;
     }
-    height: 80vh;
-    box-sizing: border-box;
-    border: #000 solid 1px;
-    border-radius: .5rem;
+    & {
+        height: 80vh;
+        box-sizing: border-box;
+        border: #000 solid 1px;
+        border-radius: .5rem;
+    }
 }
 
 .actions{

@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'app-map',
-    imports: [NgFor, NgIf, MatIconModule],
+    standalone: true,
+    imports: [NgIf, MatIconModule],
     templateUrl: './map.component.html',
     styleUrl: './map.component.scss'
 })

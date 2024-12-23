@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ThemeService } from '../../services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language/language.service';
+import { GoogleTagManagerService } from '../../services/tag-manager/tag-manager.service';
 
 const modulesToImport = [
   FormsModule, 
@@ -37,7 +38,8 @@ export class PortfolioComponent {
   constructor(
     private router: Router,
     private themeService: ThemeService,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private tagService: GoogleTagManagerService
   ){
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
@@ -53,7 +55,7 @@ export class PortfolioComponent {
   }
 
   public changeLang(lang: string){
-    console.log(lang)
+    this.tagService.trackButtonClick('language_change', 'language', 'Header button')
     this.languageService.language = lang
   }
 

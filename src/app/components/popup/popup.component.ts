@@ -4,7 +4,7 @@ import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, Mat
 
 @Component({
     selector: 'app-popup',
-    imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
+    imports: [MatDialogTitle, MatDialogActions, MatDialogClose, MatButtonModule],
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './popup.component.html',
     styleUrl: './popup.component.scss'
