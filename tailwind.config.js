@@ -8,7 +8,7 @@ module.exports = {
       colors: {
         primary: {
           light: '#1e293b', // Color para modo claro
-          dark: '#ffffff',  // Color para modo oscuro
+          dark: '#c8c8c8',  // Color para modo oscuro
         },
       },
     },
