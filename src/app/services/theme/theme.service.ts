@@ -7,7 +7,6 @@ import { BehaviorSubject, Subscription } from "rxjs"
 export class ThemeService{
     private _darkTheme!: BehaviorSubject<boolean>;
     
-    
     constructor(){
         const theme = localStorage.getItem('theme');
         document.documentElement.classList.toggle(
@@ -37,7 +36,7 @@ export class ThemeService{
         this._darkTheme.next(theme)
     }
 
-    public suscribable(): BehaviorSubject<boolean>{
+    public subscribable(): BehaviorSubject<boolean>{
         return this._darkTheme
     }
     

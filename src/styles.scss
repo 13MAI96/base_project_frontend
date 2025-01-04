@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
 
 @tailwind base;
 @tailwind components;
@@ -7,3 +8,37 @@
 
 html, body { height: 100%; margin: 0; padding: 0;}
 body { padding: 0; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
+  }
+  .title-1 {
+    @apply text-3xl flex justify-center items-center text-primary-light dark:text-primary-dark
+  }
+  .title-2 {
+    @apply text-2xl flex items-center justify-center text-primary-light dark:text-primary-dark
+  }
+  .subtitle-1 {
+    @apply text-xl flex justify-center items-center text-primary-light dark:text-primary-dark
+  }
+}
+
+:root[data-theme='light'] {
+  --paginator-text-color: #000000;
+  --paginator-background-color: #FFFFFF;
+}
+
+:root[data-theme='dark'] {
+  --paginator-text-color: #C8C8C8;
+  --paginator-background-color: #000000;
+}
+
+:root{
+    @include mat.paginator-overrides((
+      container-text-color: var(--paginator-text-color),
+      enabled-icon-color: var(--paginator-text-color),
+      container-background-color: var(--paginator-background-color),
+    ));
+  }

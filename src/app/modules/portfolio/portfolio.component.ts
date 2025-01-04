@@ -11,6 +11,8 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../services/language/language.service';
 import { GoogleTagManagerService } from '../../services/tag-manager/tag-manager.service';
+import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import { Experience, experience, WorkExperience } from '../../models/experience';
 
 const modulesToImport = [
   FormsModule, 
@@ -20,7 +22,8 @@ const modulesToImport = [
   MatButtonModule, 
   MatIconModule, 
   MatCheckboxModule,
-  CommonModule
+  CommonModule,
+  MatPaginatorModule
 ]
 
 @Component({
@@ -34,6 +37,9 @@ export class PortfolioComponent {
   public loginForm!: FormGroup
   readonly dialog = inject(MatDialog);
   public darkTheme!: boolean;
+  public experience: WorkExperience[] = experience.slice(0, 2)
+  public pageIndex: number = 0
+  public count_experience: number = experience.length
 
   constructor(
     private router: Router,
@@ -41,11 +47,7 @@ export class PortfolioComponent {
     private languageService: LanguageService,
     private tagService: GoogleTagManagerService
   ){
-    this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
-    })
-    this.themeService.suscribable().subscribe((value)=>{
+    this.themeService.subscribable().subscribe((value)=>{
       this.darkTheme = value
     })
   }
@@ -63,11 +65,27 @@ export class PortfolioComponent {
     return this.languageService.getTraduction(key)
   }
 
+  public getDateStr(date: Date | null): string{
+    if(date){
+      const month = date.getMonth()
+      const fullYear = date.getFullYear()
+      return `${this.getText(`month_${month}`)} ${fullYear}`
+    } else {
+      return this.getText('currently')
+    }
+  }
+
   hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     // event.stopPropagation();
     event.preventDefault()
+  }
+
+  public handlePageEvent(e: PageEvent) {
+    this.pageIndex = e.pageIndex;
+    const start_page = 2*this.pageIndex
+    this.experience = experience.slice(start_page, start_page+2)
   }
 
 }
