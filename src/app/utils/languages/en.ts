@@ -14,5 +14,7 @@ export const english: Record<string, string> = {
     month_8: "September",
     month_9: "October",
     month_10: "November",
-    month_11: "December"
+    month_11: "December",
+    icbc_role: "Frontend Technical Leader",
+    moby_role: "Frontend Developer",
 }

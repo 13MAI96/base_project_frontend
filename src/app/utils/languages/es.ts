@@ -14,5 +14,7 @@ export const spanish = {
     month_8: "Septiembre",
     month_9: "Octubre",
     month_10: "Noviembre",
-    month_11: "Diciembre"
+    month_11: "Diciembre",
+    icbc_role: "Lider Tecnico Frontend",
+    moby_role: "Desarrollador Frontend"
 }

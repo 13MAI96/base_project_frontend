@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
@@ -13,6 +13,7 @@ import { LanguageService } from '../../services/language/language.service';
 import { GoogleTagManagerService } from '../../services/tag-manager/tag-manager.service';
 import {MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import { Experience, experience, WorkExperience } from '../../models/experience';
+import { CarrouselComponent } from './carrousel/carrousel.component';
 
 const modulesToImport = [
   FormsModule, 
@@ -23,7 +24,8 @@ const modulesToImport = [
   MatIconModule, 
   MatCheckboxModule,
   CommonModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  CarrouselComponent
 ]
 
 @Component({
@@ -45,7 +47,7 @@ export class PortfolioComponent {
     private router: Router,
     private themeService: ThemeService,
     private languageService: LanguageService,
-    private tagService: GoogleTagManagerService
+    private tagService: GoogleTagManagerService,
   ){
     this.themeService.subscribable().subscribe((value)=>{
       this.darkTheme = value
@@ -86,6 +88,26 @@ export class PortfolioComponent {
     this.pageIndex = e.pageIndex;
     const start_page = 2*this.pageIndex
     this.experience = experience.slice(start_page, start_page+2)
+  }
+
+  public getCarrousel(list: any[]): any[]{
+    if(list.length <= 8){
+      return list
+    } else {
+      let newList = list.slice(0, 8)
+      let index = 8
+      setInterval(() => {
+        if(index >= list.length){
+          index = 0
+        }
+        console.log(list[index])
+        newList.push(list[index])
+        console.log(newList, index)
+        newList.shift()
+        index++;
+      }, 3000)
+      return newList
+    }
   }
 
 }

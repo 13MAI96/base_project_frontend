@@ -1,0 +1,5 @@
+<div class="grid grid-cols-8 gap-2 p-2 justify-items-center">
+    <div *ngFor="let tech of visibleTechnologies;" class="h-10 w-10 basis-1/8 flex justify-center" aria-label={tech.name}>
+        <img [src]="tech.logo" class="h-full" [matTooltip]="tech.name"/>
+    </div>
+</div>

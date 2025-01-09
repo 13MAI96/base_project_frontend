@@ -42,7 +42,12 @@
                         <p>Tasks</p>
                     </div>
                 </div>
-                <p>Tecnologies</p>
+                <!-- <div class="grid grid-cols-8 gap-2 p-2 justify-items-center"> -->
+                    <app-carrousel [technologies]="exp.technologies"></app-carrousel>
+                    <!-- <div *ngFor="let tec of getCarrousel(exp.tecnologies);" class="h-10 w-10 basis-1/8 flex justify-center">
+                        <img [src]="tec.logo" class="h-full"/>
+                    </div> -->
+                <!-- </div> -->
             </div>
         </div>
         <div class="paginator h-1/6">
