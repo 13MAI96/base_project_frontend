@@ -43,8 +43,26 @@ export const experience: WorkExperience[] = [
         Technologies['POSTMAN'],
         Technologies['DOCKER'],
         Technologies['TYPESCRIPT']
-    ], []),
-    new WorkExperience('icbc_role', 'ICBC Argentina', new Date('10-01-2021'), new Date('02-28-2023'), [], []),
+    ], [
+        'tec_task_01',
+        'tec_task_02',
+        'tec_task_03',
+        'tec_task_04',
+        'tec_task_05'
+    ]),
+    new WorkExperience('icbc_role', 'ICBC Argentina', new Date('10-01-2021'), new Date('02-28-2023'), [
+        Technologies['JAVASCRIPT'],
+        Technologies['ANGULAR'],
+        Technologies['POSTMAN'],
+        Technologies['TYPESCRIPT'],
+        Technologies['MIRO']
+    ], [
+        'icbc_task_01',
+        'icbc_task_02',
+        'icbc_task_03',
+        'icbc_task_04',
+        'icbc_task_05',
+    ]),
     new WorkExperience('moby_role', 'Moby Digital', new Date('08-02-2022'), new Date('02-28-2023'), [], []),
 
 ]

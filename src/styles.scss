@@ -23,6 +23,9 @@ body { padding: 0; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   .subtitle-1 {
     @apply text-xl flex justify-center items-center text-primary-light dark:text-primary-dark
   }
+  .text-1 {
+    @apply text-lg flex justify-center items-center text-primary-light dark:text-primary-dark
+  }
 }
 
 :root[data-theme='light'] {

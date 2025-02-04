@@ -39,7 +39,7 @@
                     </div>
                     <p class="subtitle-1">{{exp.company}}</p>
                     <div class="p-4">
-                        <p>Tasks</p>
+                        <p class="text-1" *ngFor="let task of exp.tasks">{{getText(task)}}</p>
                     </div>
                 </div>
                 <!-- <div class="grid grid-cols-8 gap-2 p-2 justify-items-center"> -->

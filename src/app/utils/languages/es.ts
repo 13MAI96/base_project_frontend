@@ -16,5 +16,6 @@ export const spanish = {
     month_10: "Noviembre",
     month_11: "Diciembre",
     icbc_role: "Lider Tecnico Frontend",
-    moby_role: "Desarrollador Frontend"
+    moby_role: "Desarrollador Frontend",
+    tec_task_01: 'Design and develop customised applications, using modern front-end and back-end technologies, to meet the specific needs of our clients.'
 }
